@@ -5,6 +5,7 @@ RSpec.describe OysterCard do
     @oystercard = OysterCard.new
   end
       it { is_expected.to respond_to(:top_up).with(1).argument }
+      it { is_expected.to respond_to(:in_journey?) }
 
       it "initializes with balance of 0" do
           expect(subject.balance).to eq(0)
@@ -36,6 +37,13 @@ RSpec.describe OysterCard do
         it "raises error if amount deducted is greater than balance" do
           subject.top_up(5)
           expect { subject.deduct(10) }.to raise_error "Insufficient Funds"
+        end
+      end
+
+      describe '#in_journey?' do
+        it "sets status to true when user touch in" do
+          subject.touch_in
+          expect(subject.in_journey?).to eq(true)
         end
       end
 end
