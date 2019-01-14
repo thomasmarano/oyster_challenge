@@ -9,8 +9,12 @@ MAXIMUM_BALANCE = 90
   end
 
   def top_up(amount)
-    raise "ERROR!!" if (amount + @balance) > MAXIMUM_BALANCE
+    raise error_message if (amount + @balance) > MAXIMUM_BALANCE
     @balance = @balance + amount
+  end
+
+  def error_message
+    "ERROR!! The Maximum balance is £#{OysterCard::MAXIMUM_BALANCE}"
   end
 
 
