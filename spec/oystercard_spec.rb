@@ -35,7 +35,7 @@ RSpec.describe OysterCard do
 
         it "raises error if amount deducted is greater than balance" do
           subject.top_up(5)
-          expect(subject.deduct(10)).to raise_error "error"
+          expect { subject.deduct(10) }.to raise_error "Insufficient Funds"
         end
       end
 end

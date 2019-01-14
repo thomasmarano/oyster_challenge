@@ -14,6 +14,7 @@ MAXIMUM_BALANCE = 90
   end
 
   def deduct(amount)
+    raise "Insufficient Funds" if (amount > @balance)
     @balance = @balance - amount
   end
 
