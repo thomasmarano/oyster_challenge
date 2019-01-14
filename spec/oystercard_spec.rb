@@ -21,7 +21,9 @@ RSpec.describe OysterCard do
           end
 
           it 'raises error if new balance exceeds maximum balance' do
-              expect { @oystercard.top_up(95) }.to raise_error "ERROR!! The Maximum balance is £#{OysterCard::MAXIMUM_BALANCE}"
+              maximum_balance = OysterCard::MAXIMUM_BALANCE
+              subject.top_up(maximum_balance)
+              expect { subject.top_up(1) }.to raise_error "ERROR!! The Maximum balance is £#{OysterCard::MAXIMUM_BALANCE}"
           end
       end
 end
