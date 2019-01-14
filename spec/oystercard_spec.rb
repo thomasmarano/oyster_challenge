@@ -1,6 +1,9 @@
 require 'oystercard'
 
 RSpec.describe OysterCard do
+  before(:each) do
+    @oystercard = OysterCard.new
+  end
       it { is_expected.to respond_to(:top_up).with(1).argument }
 
       it "initializes with balance of 0" do
@@ -12,5 +15,9 @@ RSpec.describe OysterCard do
               expect(subject.top_up(15)).to eq(15)
           end
 
+          it "confirms balance is updated as expected" do
+              @oystercard.top_up(15)
+              expect(@oystercard.balance).to eq(15)
+          end
       end
 end

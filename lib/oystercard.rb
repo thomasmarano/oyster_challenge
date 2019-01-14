@@ -8,6 +8,6 @@ DEFAULT_BALANCE = 0
   end
 
   def top_up(amount)
-      @balance + amount
+    @balance = @balance + amount
   end
 end
