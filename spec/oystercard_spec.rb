@@ -31,7 +31,7 @@ RSpec.describe OysterCard do
       describe '#deduct' do
         it "reduces balance by specified amount" do
           subject.top_up(10)
-          expect{subject.deduct(10)}.to change{subject.balance}.by(-10) 
+          expect{subject.deduct(10)}.to change{subject.balance}.by(-10)
         end
 
         it "raises error if amount deducted is greater than balance" do
@@ -40,10 +40,18 @@ RSpec.describe OysterCard do
         end
       end
 
-      describe '#in_journey?' do
-        it "sets status to true when user touch in" do
-          subject.touch_in
-          expect(subject.in_journey?).to eq(true)
-        end
+      describe '#touch_in' do
+          it "sets in journey variable to true when user touches in" do
+              subject.touch_in
+              expect(subject.in_journey?)
+
+          end
       end
+
+      # describe '#in_journey?' do
+      #   it "sets status to true when user touch in" do
+      #     subject.touch_in
+      #     expect(subject.in_journey?).to eq(true)
+      #   end
+      # end
 end
