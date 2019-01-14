@@ -13,6 +13,10 @@ MAXIMUM_BALANCE = 90
     @balance = @balance + amount
   end
 
+  def deduct(amount)
+    @balance = @balance - amount
+  end
+
   def error_message
     "ERROR!! The Maximum balance is £#{OysterCard::MAXIMUM_BALANCE}"
   end
