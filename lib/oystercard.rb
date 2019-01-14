@@ -7,4 +7,7 @@ DEFAULT_BALANCE = 0
     @balance = balance
   end
 
+  def top_up(amount)
+      @balance + amount
+  end
 end
