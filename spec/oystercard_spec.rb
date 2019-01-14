@@ -30,7 +30,7 @@ RSpec.describe OysterCard do
       describe '#deduct' do
         it "reduces balance by specified amount" do
           subject.top_up(10)
-          expect(subject.deduct(10)).to eq(0)
+          expect{subject.deduct(10)}.to change{subject.balance}.by(-10) 
         end
 
         it "raises error if amount deducted is greater than balance" do
